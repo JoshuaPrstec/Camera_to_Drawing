@@ -34,12 +34,14 @@
    ```
    brew --version
    ```
-6. Once Homebrew has been added to the path, install Python in Terminal:
+6. Download the Camera_to_Drawing code: https://github.com/JoshuaPrstec/Camera_to_Drawing/archive/refs/heads/main.zip
+7. Open VSCode and press `file`, `open folder`, and select the downloaded folder
+8. In the Camera_to_Drawing VSCode workspace, install Python in the VSCode Terminal:
    ```
    brew install python
    ```
-7. Test that Python has been installed successfully in Terminal:
+9. Test that Python has been installed successfully in VSCode Terminal:
    ```
    python --version
    ```
-8. 
+10. 
