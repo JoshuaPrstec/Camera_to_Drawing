@@ -34,8 +34,12 @@
    ```
    brew --version
    ```
-6. Once Hombrew has been added to the path, install python in Terminal:
+6. Once Homebrew has been added to the path, install Python in Terminal:
    ```
    brew install python
    ```
-7. 
+7. Test that Python has been installed successfully in Terminal:
+   ```
+   python --version
+   ```
+8. 
