@@ -3,7 +3,7 @@
    ```
    xcode-select --install
    ```
-2. Download VSCode: https://code.visualstudio.com/download
+2. Download VSCode: https://code.visualstudio.com/docs/?dv=osx
 3. Once the Command Line Tools have installed, install Homebrew in Terminal:
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
