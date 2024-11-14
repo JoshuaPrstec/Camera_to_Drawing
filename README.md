@@ -42,9 +42,9 @@
    brew install python
    ```
 10. Test that Python has been installed successfully in VSCode Terminal:
-   ```
-   python --version
-   ```
+    ```
+    python --version
+    ```
 11. Create a new virtual environment:
     ```
     python -m venv venv
