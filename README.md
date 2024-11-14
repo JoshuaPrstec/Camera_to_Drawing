@@ -8,7 +8,7 @@
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
-4. Add Homebrew to your path in Terminal (type each command one at a time):
+4. Add Homebrew to your path in Terminal:
    ```
    cd /opt/homebrew/bin/
    ls
@@ -36,9 +36,6 @@
 13. Press the run button (this will open a new terminal tab).
 14. Install libraries:
     ```
-    pip install opencv-python
-    ```
-    ```
-    pip install pillow
+    pip install opencv-python pillow
     ```
 15. Press the run button again to start the program.
