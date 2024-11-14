@@ -4,9 +4,6 @@
    xcode-select --install
    ```
 2. Download VSCode: https://code.visualstudio.com/download
-<a href="https://code.visualstudio.com/download" target="_blank">New Tab</a>
-
-<a href="http://stackoverflow.com" target="_blank">Go</a>
 3. Install Homebrew in Terminal:
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
