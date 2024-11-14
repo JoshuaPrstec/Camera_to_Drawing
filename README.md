@@ -3,11 +3,12 @@
    ```
    xcode-select --install
    ```
-2. Install Homebrew in Terminal:
+2. Download VSCode: https://code.visualstudio.com/download
+<a href="example.com" target="_blank">New Tab</a>
+3. Install Homebrew in Terminal:
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
-3. Download VSCode: https://code.visualstudio.com/download
 4. Add Homebrew to your path in Terminal (type each command one at a time):
    ```
    cd /opt/homebrew/bin/
