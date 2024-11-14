@@ -36,6 +36,6 @@
 13. Press the run button (this will open a new terminal tab).
 14. Install libraries:
     ```
-    pip install opencv-python pillow
+    pip install --upgrade pip opencv-python pillow
     ```
 15. Press the run button again to start the program.
