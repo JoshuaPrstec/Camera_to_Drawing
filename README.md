@@ -11,20 +11,15 @@
 4. Add Homebrew to your path in Terminal (type each command one at a time):
    ```
    cd /opt/homebrew/bin/
-   ```
-   ```
+
    ls
-   ```
-   ```
+
    PATH=$PATH:/opt/homebrew/bin
-   ```
-   ```
+
    cd
-   ```
-   ```
+
    touch .zshrc
-   ```
-   ```
+
    echo 'export PATH=$PATH:/opt/homebrew/bin' >> .zshrc
    ```
 5. Test that Homebrew has been added successfully in Terminal:
