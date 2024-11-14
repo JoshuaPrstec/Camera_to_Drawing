@@ -52,6 +52,7 @@
     ```
     source venv/bin/activate
     ```
+12. Change the interpreter to `Python [version] ('venv':venv)`
 12. Install libraries:
     ```
     pip install opencv-python
