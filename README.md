@@ -37,26 +37,20 @@
 6. Download the Camera_to_Drawing code: https://github.com/JoshuaPrstec/Camera_to_Drawing/archive/refs/heads/main.zip
 7. Open VSCode and press `file`, `open folder`, and select the downloaded folder
 8. In VSCode, install the Python language extension
-9. In the Camera_to_Drawing VSCode workspace, install Python in the VSCode Terminal:
-   ```
-   brew install python
-   ```
-10. Test that Python has been installed successfully in VSCode Terminal:
-    ```
-    python --version
-    ```
 11. Create a new virtual environment:
     ```
-    python -m venv venv
+    python3 -m venv venv
     ```
     ```
     source venv/bin/activate
     ```
 12. Change the interpreter to `Python [version] ('venv':venv)`
-12. Install libraries:
+13. Press the run button (this will open a new terminal tab).
+14. Install libraries:
     ```
     pip install opencv-python
     ```
     ```
     pip install pillow
     ```
+15. Press the run button again to start the program.
