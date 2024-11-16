@@ -35,8 +35,6 @@
 13. Create a new virtual environment:
     ```bash
     python3 -m venv venv
-    ```
-    ```bash
     source venv/bin/activate
     ```
 14. Change the interpreter to `Python [version] ('venv':venv)`
