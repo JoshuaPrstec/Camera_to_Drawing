@@ -59,8 +59,6 @@ def upload_and_save():
             # Load the image using OpenCV
             global uploaded_image
             uploaded_image = cv2.imread(file_path)
-            if is_inverted:
-                uploaded_image = cv2.flip(uploaded_image, 1)
             show_popup()
 
     # Create a Tkinter root window (it won't be shown)
@@ -86,6 +84,8 @@ def invert_camera():
 # Update the camera feed
 def update_camera():
     while not stop_event.is_set():
+        if not root.winfo_exists():  # Ensure window exists
+            break
         with cap_lock:
             if cap is not None:
                 ret, frame = cap.read()
@@ -97,11 +97,23 @@ def update_camera():
                     line_drawing_frame = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
                     line_drawing_frame = cv2.cvtColor(line_drawing_frame, cv2.COLOR_BGR2RGB)
                     photo = ImageTk.PhotoImage(Image.fromarray(line_drawing_frame))
-                    canvas.create_image((canvas.winfo_width() - photo.width()) // 2,
-                                        (canvas.winfo_height() - photo.height()) // 2,
-                                        image=photo, anchor=tk.NW)
-                    canvas.image = photo
+                    # Check if the window is still open before updating the canvas
+                    if root.winfo_exists():
+                        canvas.create_image((canvas.winfo_width() - photo.width()) // 2,
+                                            (canvas.winfo_height() - photo.height()) // 2,
+                                            image=photo, anchor=tk.NW)
+                        canvas.image = photo
         time.sleep(0.03)
+
+# Graceful exit when closing the window
+def on_closing():
+    stop_event.set()  # Signal the camera thread to stop
+    if cap is not None:
+        cap.release()  # Release the camera
+    root.quit()  # Quit the Tkinter event loop
+    root.destroy()  # Destroy the Tkinter root window
+    gc.collect()  # Run garbage collection to clean up resources
+
 
 # Show popup for the uploaded image
 def show_popup():
@@ -199,23 +211,13 @@ sensitivity_slider.grid(row=1, column=8, padx=10, pady=10, sticky="e")
 
 # Initialize camera
 if camera_list:
-    cap = cv2.VideoCapture(camera_list[0][1])
-    if cap.isOpened():
-        current_camera_index = camera_list[0][1]
-        threading.Thread(target=update_camera, daemon=True).start()
+    change_camera(camera_list[0][1])
 
-# Graceful exit
-def on_closing():
-    stop_event.set()
-    if cap is not None:
-        cap.release()
-    root.destroy()
-    gc.collect()
+# Start the camera update thread
+threading.Thread(target=update_camera, daemon=True).start()
 
+# Close event handling
 root.protocol("WM_DELETE_WINDOW", on_closing)
-root.mainloop()
 
-stop_event.set()
-if cap is not None:
-    cap.release()
-gc.collect()
+# Start the Tkinter event loop
+root.mainloop()
