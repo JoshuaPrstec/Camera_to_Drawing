@@ -6,9 +6,6 @@
 2. Once the Command Line Tools have installed, install Homebrew in Terminal:
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-3. Add Homebrew to your path in Terminal:
-   ```bash
    cd /opt/homebrew/bin/
    ls
    PATH=$PATH:/opt/homebrew/bin
