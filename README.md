@@ -18,16 +18,21 @@
 4. If the Homebrew version appears in the terminal, it has installed successfully. You can now install VSCode:
    ```bash
    brew install --cask visual-studio-code
-   brew install python
+   brew install python python-tk
    ```
 5. Download the Camera_to_Drawing code: https://github.com/JoshuaPrstec/Camera_to_Drawing/archive/refs/heads/main.zip
 6. Open VSCode and press `file`, `open folder`, and select the downloaded folder
 7. In VSCode, press the extensions tab (three squares with a fourth in the top-right corner).
 8. Type `python` and install the latest version of the Python extension.
-9. Press on the Python version (e.g.`3.13.0 64-bit`), then select `Create Virtual Environment`, `Venv`, and select the latest version, located in `/opt/homebrew/bin/python3`
-10. Press the bin icon, then press the run button again to relaunch the Python terminal in venv mode.
-11. Install libraries:
+9. Create a virtual environment in the VSCode terminal:
+    ```bash
+    python3.13 -m venv venv
+    source venv/bin/activate
+    ```
+10. Press the Python version (e.g. `3.9.6 64-bit`), then select the Python venv option (e.g. `Python 3.13.9 ('venv': venv) ./venv/bin/python`.
+11. Press the bin icon, then press the run button again to relaunch the Python terminal in venv mode.
+12. Install libraries:
     ```bash
     pip install --upgrade pip opencv-python pillow
     ```
-12. Press the run button again to start the program (the first run may take a few seconds).
+13. Press the run button again to start the program (the first run may take a few seconds).
