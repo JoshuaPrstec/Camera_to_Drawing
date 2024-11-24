@@ -1,4 +1,5 @@
 # Camera_to_Drawing
+## Mac
 1. Install Command Line Tools in Terminal:
    ```
    xcode-select --install
@@ -29,10 +30,14 @@
     python3.13 -m venv venv
     source venv/bin/activate
     ```
-10. Press the Python version (e.g. `3.9.6 64-bit`), then select the Python venv option (e.g. `Python 3.13.9 ('venv': venv) ./venv/bin/python`.
+10. Press the Python version (e.g. `3.9.6 64-bit`), then select the Python venv option (e.g. `Python 3.13.0 ('venv': venv) ./venv/bin/python`.
 11. Press the bin icon, then press the run button again to relaunch the Python terminal in venv mode.
 12. Install libraries:
     ```bash
     pip install --upgrade pip opencv-python pillow
     ```
 13. Press the run button again to start the program (the first run may take a few seconds).
+
+## Windows
+
+Comming Soon
