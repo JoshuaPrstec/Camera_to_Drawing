@@ -54,6 +54,6 @@
 9. Press the bin icon, then press the run button again to relaunch the Python terminal in venv mode.
 10. Install libraries:
     ```bash
-    pip install --upgrade pip opencv-python pillow
+    pip install --upgrade pip opencv-python pillow tk
     ```
 11. Press the run button again to start the program (the first run may take a few seconds).
