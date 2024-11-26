@@ -13,14 +13,18 @@ current_camera_index = None
 uploaded_image = None  # To store the uploaded image
 frame_queue = queue.Queue(maxsize=1)  # Queue to hold the latest frame
 
-# Detect available cameras
 def detect_cameras():
     camera_list = []
-    for i in range(10):
-        temp_cap = cv2.VideoCapture(i)
+    index = 0
+    while True:
+        temp_cap = cv2.VideoCapture(index)
         if temp_cap.isOpened():
-            camera_list.append((f"Camera {i}", i))
+            camera_list.append((f"Camera {index}", index))
             temp_cap.release()
+        else:
+            temp_cap.release()
+            break  # Stop checking further indices if the current one is not available
+        index += 1
     return camera_list
 
 # Change the camera
