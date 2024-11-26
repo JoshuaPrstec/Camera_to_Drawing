@@ -65,6 +65,7 @@ def process_and_save_image(frame):
 def invert_camera():
     global is_inverted
     is_inverted = not is_inverted
+    print("Camera is inverted")
 
 # Worker thread to capture frames from the camera
 def capture_frame():
@@ -113,14 +114,27 @@ def show_popup():
         processed_image = process_uploaded_image(sensitivity)
         pil_image = Image.fromarray(processed_image)
         photo = ImageTk.PhotoImage(pil_image)
-        canvas_popup.create_image(320, 180, image=photo)
+        canvas_popup.config(width=processed_image.shape[1], height=processed_image.shape[0])  # Adjust canvas size
+        canvas_popup.create_image(0, 0, image=photo, anchor=tk.NW)
         canvas_popup.image = photo
 
     popup = tk.Toplevel(root)
     popup.title("Edit Image")
-    popup.geometry("800x600")
 
-    canvas_popup = tk.Canvas(popup, width=640, height=360)
+    # Resize image proportionally to 720px height
+    def resize_image_proportionally(image, max_height=720):
+        original_height, original_width = image.shape[:2]
+        scaling_factor = max_height / original_height
+        new_width = int(original_width * scaling_factor)
+        resized_image = cv2.resize(image, (new_width, max_height))
+        return resized_image
+
+    # Resize the uploaded image before processing
+    resized_uploaded_image = resize_image_proportionally(uploaded_image)
+
+    popup.geometry(f"{resized_uploaded_image.shape[1] + 100}x{resized_uploaded_image.shape[0] + 200}")
+
+    canvas_popup = tk.Canvas(popup)
     canvas_popup.pack(pady=10)
 
     ttk.Label(popup, text="Sensitivity").pack(pady=5)
@@ -129,16 +143,12 @@ def show_popup():
     sensitivity_slider_popup.pack(pady=10)
     sensitivity_slider_popup.bind("<Motion>", lambda event: update_popup_canvas(int(sensitivity_slider_popup.get())))
 
-
     def process_uploaded_image(sensitivity):
-        if uploaded_image is not None:
-            gray = cv2.cvtColor(uploaded_image, cv2.COLOR_BGR2GRAY)
+        if resized_uploaded_image is not None:
+            gray = cv2.cvtColor(resized_uploaded_image, cv2.COLOR_BGR2GRAY)
             edges = cv2.Canny(gray, threshold1=sensitivity, threshold2=sensitivity * 3)
             line_drawing_frame = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
-            resized_image = cv2.resize(line_drawing_frame, (640, 360))
-            return resized_image
-
-
+            return line_drawing_frame
 
     def save_image():
         sensitivity = int(sensitivity_slider_popup.get())
