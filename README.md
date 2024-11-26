@@ -48,7 +48,7 @@
 7. Create a virtual environment in the VSCode terminal:
    ```bash
    python3.13 -m venv venv
-   source venv/bin/activate
+   venv\Scripts\activate.bat
    ```
 8. Press the Python version (e.g. `3.9.6 64-bit`), then select the Python venv option (e.g. `Python 3.13.0 ('venv': venv) ./venv/bin/python`.
 9. Press the bin icon, then press the run button again to relaunch the Python terminal in venv mode.
